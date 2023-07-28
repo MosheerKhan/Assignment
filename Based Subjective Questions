@@ -1,0 +1,132 @@
+Assignment-based Subjective Questions
+Ques1:- From your analysis of the categorical variables from the dataset, what could you infer about their effect on the dependent variable?
+Ans.:-  
+•	Bike demand in the fall is the highest.
+•	Bike demand takes a dip in spring.
+•	Bike demand in year 2019 is higher as compared to 2018.
+•	Bike demand is high in the months from May to October.
+•	Bike demand is high if weather is clear or with mist cloudy while it is low when there is light rain or light snow.
+•	The demand of bike is almost similar throughout the weekdays.
+•	Bike demand doesn’t change whether day is working day or not.
+Ques2:- Why is it important to use drop_first=True during dummy variable creation?
+Ans.:-  
+•	It is important in order to achieve k-1 dummy variables as it can be used to deleteextra column while creating dummy variables.
+•	For Example: We have three variables: Furnished, Semi-furnished and un-furnished. We can only take 2 variables as furnished will be 1-0, semi-furnished will be 0-1, so we don’t need unfurnished as we know 0-0 will indicate un-furnished. So we can remove it.
+•	It is also used to reduce the collinearity between dummy variables.
+Ques3:- Looking at the pair-plot among the numerical variables, which one has the highest correlation with the target variable?
+Ans.:- atemp and temp both have same correlation with target variable of 0.63 which isthe highest among all numerical variables.
+Ques4:- How did you validate the assumptions of Linear Regression after building the model on the training set? 
+Ans.:- After building the Linear Regression model on the training set, the assumptions were validated in short as follows:-
+•	Linearity: Checked if the relationship between the independent variables and the target variable is linear using scatter plots or residual plots.
+•	Independence: Assessed the independence of residuals to ensure that there are no patterns or dependencies left in the model's errors.
+•	Homoscedasticity: Examined the residuals to verify that their variance remains constant across different values of the independent variables.
+•	Normality: Checked if the residuals follow a normal distribution using histograms, Q-Q plots, or statistical tests.
+•	Multicollinearity: Assessed the correlation between independent variables to ensure they are not highly correlated, causing multicollinearity issues.
+Ques5:- Based on the final model, which are the top 3 features contributing significantly towards explaining the demand of the shared bikes?
+Ans.:- Based on the final model, the top 3 features contributing significantly towards explaining the demand of the shared bikes are:-
+•	"atemp" (feeling temperature) - This variable represents the "feels-like" temperature and has a strong positive impact on bike demand.
+•	"temp" (actual temperature) - The actual temperature also positively influences bike demand.
+•	(Third feature) - The third significant feature contributing to bike demand is not mentioned in the provided information. The model would have determined this based on the dataset and feature importance analysis. To identify the third feature, you would need to refer to the feature importance scores or coefficients obtained from the final model.
+General Subjective Questions
+Ques1:- Explain the linear regression algorithm in detail.
+Ans.:- The linear regression algorithm can be explained in detail as follows:
+1.	Assumptions: Linear regression relies on several assumptions:
+•	Linearity: The relationship between the dependent and independent variables should be linear.
+•	Independence: The observations should be independent of each other.
+•	Homoscedasticity: The variance of the residuals (the differences between actual and predicted values) should be constant across all levels of the independent variables.
+•	Normality: The residuals should follow a normal distribution.
+2.	Simple Linear Regression: In simple linear regression, there is only one independent variable. The linear equation for simple linear regression can be represented as: Y = β0 + β1 * X + ε
+•	Y: Dependent variable (target)
+•	X: Independent variable (predictor)
+•	β0: Intercept (the value of Y when X is 0)
+•	β1: Coefficient (the change in Y for a unit change in X)
+•	ε: Error term (residuals)
+3.	Multiple Linear Regression: In multiple linear regression, there are multiple independent variables. The linear equation for multiple linear regression can be represented as: Y = β0 + β1 * X1 + β2 * X2 + ... + βn * Xn + ε
+•	Y: Dependent variable (target)
+•	X1, X2, ..., Xn: Independent variables (predictors)
+•	β0: Intercept
+•	β1, β2, ..., βn: Coefficients for each independent variable
+•	ε: Error term (residuals)
+4.	Fitting the Model: The goal of linear regression is to find the values of the coefficients (β0, β1, ..., βn) that minimize the sum of squared residuals. The process of finding the best-fitting line is often done using the method of least squares.
+5.	Coefficient Estimation: The coefficients are estimated using various optimization techniques such as Ordinary Least Squares (OLS) or gradient descent.
+6.	Model Evaluation: After fitting the model, various evaluation metrics are used to assess its performance, such as R-squared (the proportion of variance explained by the model), mean squared error (MSE), and Root Mean Squared Error (RMSE).
+7.	Making Predictions: Once the model is trained and evaluated, it can be used to make predictions on new data by substituting the values of the independent variables into the linear equation.
+Ques2:- Explain the Anscombe’s quartet in detail.
+Ans.:- Anscombe's quartet is a famous statistical demonstration that highlights the importance of data visualization and the limitations of relying solely on summary statistics. It consists of four small datasets, each with two variables (X and Y), created by the statistician Francis Anscombe in 1973. Despite having vastly different distributions and patterns, the summary statistics for all four datasets are nearly identical, making them indistinguishable when analyzed solely through numerical measures.
+Here are the details of the four datasets in Anscombe's quartet:
+1.	Dataset I:
+•	X: 10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0
+•	Y: 8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82
+2.	Dataset II:
+•	X: 10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0
+•	Y: 9.14, 8.14, 8.74, 8.77, 9.26, 8.10, 6.13, 3.10, 9.13, 7.26
+3.	Dataset III:
+•	X: 10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0
+•	Y: 7.46, 6.77, 12.74, 7.11, 7.81, 8.84, 6.08, 5.39, 8.15, 6.42
+4.	Dataset IV:
+•	X: 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 19.0, 8.0, 8.0
+•	Y: 6.58, 5.76, 7.71, 8.84, 8.47, 7.04, 5.25, 12.50, 5.56, 7.91
+Key observations from Anscombe's quartet:
+1.	Similar Summary Statistics: Despite the differences in the data distribution, each dataset has almost identical summary statistics like mean, variance, correlation coefficient, and linear regression coefficients.
+2.	Different Patterns: The datasets have different patterns, including linear relationships, quadratic relationships, and constant values, highlighting the importance of visualizing data to understand underlying patterns.
+3.	Importance of Visualization: Anscombe's quartet serves as a reminder that summary statistics alone can be insufficient for understanding data and identifying relationships. Data visualization helps to reveal patterns and trends that might otherwise go unnoticed.
+4.	Statistical Caution: Anscombe's quartet demonstrates the importance of being cautious when interpreting data. Relying solely on summary statistics without visual exploration can lead to incorrect conclusions.
+In summary, Anscombe's quartet is a powerful demonstration of the value of data visualization and the limitations of relying solely on summary statistics. It emphasizes the need to explore data visually to gain deeper insights and make more informed decisions in statistical analysis.
+Ques3:- What is Pearson’s R?
+Ans.:- Pearson's correlation coefficient, often denoted as "r" or "Pearson's r," is a statistical measure that quantifies the strength and direction of the linear relationship between two continuous variables. It was developed by Karl Pearson in the late 19th century and is widely used in statistics and data analysis.
+Pearson's correlation coefficient can take values between -1 and +1, where:
+•	+1 indicates a perfect positive linear relationship: As one variable increases, the other variable increases proportionally.
+•	0 indicates no linear relationship: There is no systematic relationship between the two variables.
+•	-1 indicates a perfect negative linear relationship: As one variable increases, the other variable decreases proportionally.
+The formula for calculating Pearson's correlation coefficient "r" between two variables X and Y with n data points is:
+�=∑�=1�(��−�ˉ)(��−�ˉ)∑�=1�(��−�ˉ)2∑�=1�(��−�ˉ)2r=∑i=1n(Xi−Xˉ)2∑i=1n(Yi−Yˉ)2∑i=1n(Xi−Xˉ)(Yi−Yˉ)
+where:
+•	��Xi and ��Yi are the individual data points for X and Y, respectively.
+•	�ˉXˉ and �ˉYˉ are the means of X and Y, respectively.
+The calculation involves the covariance of X and Y (numerator) and the product of their standard deviations (denominator).
+Pearson's correlation coefficient is commonly used to assess the strength and direction of relationships between variables in various fields, such as psychology, social sciences, finance, and machine learning. However, it is important to note that Pearson's correlation measures only linear relationships and may not capture other types of associations, such as nonlinear or monotonic relationships. In such cases, alternative correlation measures like Spearman's rank correlation or Kendall's tau may be more appropriate.
+Ques4:- What is scaling? Why is scaling performed? What is the difference between normalized scaling and standardized scaling?
+Ans.:- Scaling is a preprocessing technique used in data preparation to transform numerical variables to a specific range or distribution. The purpose of scaling is to bring all the variables to a common scale, ensuring that no variable dominates or has an undue influence on the data analysis or machine learning algorithms. It helps improve the performance and convergence of various algorithms and ensures fair comparisons between different features.
+The main reasons for performing scaling are:
+1.	Avoiding Dominance: Variables with larger magnitudes may dominate the analysis or algorithms compared to those with smaller magnitudes. Scaling ensures that all variables contribute equally to the analysis.
+2.	Convergence: Many optimization algorithms used in machine learning, such as gradient descent, converge faster when variables are on a similar scale.
+3.	Distance Metrics: Scaling is important when using distance-based algorithms, like k-nearest neighbors, as differences in scales can lead to biased distance calculations.
+4.	Regularization: Regularization techniques, like L1 and L2 regularization, are sensitive to the scale of variables. Scaling ensures that regularization is uniformly applied across all features.
+5.	Interpretability: Scaling can make the interpretation of coefficients in linear models more meaningful and comparable.
+There are two common types of scaling:
+1.	Normalized Scaling (Min-Max Scaling):
+•	Normalized scaling rescales the data to a fixed range, typically between 0 and 1.
+•	The formula for normalized scaling of a variable X is: �normalized=�−�min�max−�minXnormalized=Xmax−XminX−Xmin
+•	Here, �minXmin is the minimum value of X, and �maxXmax is the maximum value of X.
+2.	Standardized Scaling (Z-Score Scaling):
+•	Standardized scaling transforms the data to have a mean of 0 and a standard deviation of 1.
+•	The formula for standardized scaling of a variable X is: �standardized=�−��Xstandardized=σX−μ
+•	Here, �μ is the mean of X, and �σ is the standard deviation of X.
+The key differences between normalized scaling and standardized scaling are:
+•	Range: Normalized scaling scales the data to a fixed range (e.g., 0 to 1), while standardized scaling centers the data around zero with a standard deviation of 1.
+•	Interpretation: Normalized scaling maintains the original distribution and is useful when the range of the variable is known to be bounded. Standardized scaling centers the data, making it more interpretable and useful when the variable has a wide range or an unknown distribution.
+In summary, scaling is performed to ensure all variables are on a common scale, avoiding dominance and improving algorithm performance. Normalized scaling brings data to a fixed range, while standardized scaling centers data around zero with a standard deviation of 1. The choice of scaling method depends on the specific requirements of the data and the algorithms being used.
+Ques5:- You might have observed that sometimes the value of VIF is infinite. Why does this happen?
+Ans.:- In some cases, the value of the Variance Inflation Factor (VIF) can become infinite. This occurs when there is perfect multicollinearity among the predictor variables in a multiple linear regression model.
+Perfect multicollinearity happens when one or more independent variables can be perfectly predicted by a linear combination of other independent variables. In other words, there is a perfect linear relationship among the predictors. When this occurs, the regression model cannot distinguish the individual effects of the collinear variables from each other, leading to unstable coefficient estimates and inflated standard errors.
+The formula for calculating the VIF of a particular independent variable is:
+���=11−�2VIF=1−R21
+where �2R2 is the coefficient of determination obtained when regressing the independent variable against all other independent variables in the model.
+If �2R2 is equal to 1, which happens in cases of perfect multicollinearity, the denominator becomes 0, resulting in a division by zero, and the VIF becomes infinite.
+To deal with perfect multicollinearity, one of the following steps can be taken:
+1.	Remove one or more of the highly correlated variables from the model, keeping the ones most relevant to the analysis.
+2.	Combine the collinear variables into a single composite variable if it makes theoretical sense to do so.
+3.	Gather more data to break the collinearity, although this might not always be feasible.
+It is essential to detect and address multicollinearity in regression models to obtain accurate and meaningful results. High VIF values can indicate potential problems with the model's stability and the reliability of the coefficient estimates.
+Ques6:- What is a Q-Q plot? Explain the use and importance of a Q-Q plot in linear regression.
+Ans.:- A Q-Q plot, short for Quantile-Quantile plot, is a graphical tool used to assess whether a dataset follows a specific theoretical distribution, such as the normal distribution. It helps to visually compare the quantiles of the dataset against the quantiles of the theoretical distribution.
+How does a Q-Q plot work?
+•	The Q-Q plot plots the quantiles of the dataset on the x-axis and the quantiles of the theoretical distribution on the y-axis.
+•	If the dataset perfectly follows the theoretical distribution, the points on the Q-Q plot will fall on a straight line with a slope of 1.
+•	Any deviation from the straight line indicates that the dataset's distribution deviates from the theoretical distribution.
+Importance of Q-Q plot in linear regression:
+1.	Normality Check: In linear regression, it is often assumed that the errors (residuals) between the predicted values and the actual values follow a normal distribution. A Q-Q plot of the residuals can help assess whether this assumption holds true. If the residuals approximately follow a straight line, it suggests that the normality assumption is reasonable.
+2.	Residual Diagnostics: Q-Q plots are an essential part of residual diagnostics in linear regression. By inspecting the Q-Q plot of the residuals, you can identify potential departures from normality, such as skewness or heavy-tailed distributions. Deviations from the straight line pattern may indicate the presence of outliers or other issues that need attention.
+3.	Identifying Transformations: If the Q-Q plot shows significant deviations from the straight line, it suggests that the residuals do not follow a normal distribution. In such cases, it might be necessary to apply transformations to the dependent or independent variables to make the data more suitable for linear regression.
+4.	Model Validity: A well-behaved Q-Q plot of residuals provides confidence in the validity of the linear regression model. If the Q-Q plot shows pronounced curvature or deviations from the straight line, it raises concerns about the model's assumptions and the reliability of the regression results.
+Overall, the Q-Q plot is a powerful graphical tool that allows you to visually inspect the distributional assumptions in linear regression. It helps in detecting potential issues, suggesting necessary data transformations, and ensuring the model's reliability by validating the normality assumption of the residuals.
